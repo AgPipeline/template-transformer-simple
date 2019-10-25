@@ -64,4 +64,6 @@ def generate_dockerfile(base_image_name: str) -> None:
 # Make the call to generate the file
 if __name__ == "__main__":
     print('Configuring Dockerfile')
-    generate_dockerfile(determine_base_image())
+    BASE = determine_base_image()
+    print('Using base image "%s"' % BASE)
+    generate_dockerfile(BASE)

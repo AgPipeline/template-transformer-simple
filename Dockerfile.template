@@ -1,4 +1,13 @@
 FROM base-image
 LABEL maintainer=""
 
-COPY configuration.py transformer.py /home/extractor/
+COPY configuration.py transformer.py requirements.txt /home/extractor/
+
+# Switch to root for installs
+USER root
+
+RUN python3 -m pip install --no-cache-dir -r /home/extractor/requirements.txt && \
+    rm /home/extractor/requirements.txt
+
+# switch back to preferred user
+USER extractor

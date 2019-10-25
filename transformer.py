@@ -11,7 +11,7 @@ def add_parameters(parser: argparse.ArgumentParser) -> None:
         parser: instance of argparse
     """
 
-def check_continue(transformer: transformer_class.Transformer, check_md: dict, transformer_md: dict, full_md: dict) -> dict:
+def check_continue(transformer: transformer_class.Transformer, check_md: dict, transformer_md: dict, full_md: dict) -> list:
     """Checks if conditions are right for continuing processing
     Arguments:
         transformer: instance of transformer class
@@ -20,7 +20,7 @@ def check_continue(transformer: transformer_class.Transformer, check_md: dict, t
         an error message if there's an error
     """
     print("check_continue(): received arguments: %s" % str(kwargs))
-    return {'code': 0}
+    return (0)
 
 def perform_process(transformer: transformer_class.Transformer, check_md: dict, transformer_md: dict, full_md: dict) -> dict:
     """Performs the processing of the data

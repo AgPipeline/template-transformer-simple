@@ -1,0 +1,4 @@
+FROM base-image
+LABEL maintainer=""
+
+COPY configuration.py transformer.py /home/extractor/

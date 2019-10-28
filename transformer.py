@@ -19,7 +19,7 @@ def check_continue(transformer: transformer_class.Transformer, check_md: dict, t
         Returns a dictionary containining the return code for continuing or not, and
         an error message if there's an error
     """
-    print("check_continue(): received arguments: %s" % str(kwargs))
+    print("check_continue(): received arguments: %s" % str(check_md))
     return (0)
 
 def perform_process(transformer: transformer_class.Transformer, check_md: dict, transformer_md: dict, full_md: dict) -> dict:
@@ -29,5 +29,5 @@ def perform_process(transformer: transformer_class.Transformer, check_md: dict, 
     Return:
         Returns a dictionary with the results of processing
     """
-    print("perform_process(): received arguments: %s" % str(kwargs))
+    print("perform_process(): received arguments: %s" % str(check_md))
     return {'code': 0, 'message': "Everything is going swimmingly"}

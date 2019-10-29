@@ -23,7 +23,7 @@ AUTHOR_NAME = ''
 AUTHOR_EMAIL = ''
 
 # Contributors to this transformer
-CONTRUBUTORS = ['Max Burnette', 'Zongyang Li', 'Todd Nicholson']
+CONTRUBUTORS = []
 
 # Reposity URI of where the source code lives
 REPOSITORY = ''

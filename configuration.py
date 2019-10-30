@@ -22,5 +22,8 @@ AUTHOR_NAME = ''
 # The email of the author of the extractor
 AUTHOR_EMAIL = ''
 
+# Contributors to this transformer
+CONTRUBUTORS = []
+
 # Reposity URI of where the source code lives
 REPOSITORY = ''

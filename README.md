@@ -21,10 +21,3 @@ The benefit of this approach is that the processing code can be updated in its o
 Another benefit is the clean separation of the processing logic and the environment via seperate repos.
 
 A drawback is that there may be a proliferation of repos.
-
-=======
-2. Fill out the `configuration.py` file with your information
-3. Add your code to the `transformer.py` file
-4. Build the Docker image being sure to specify the desired source image
-
-## 

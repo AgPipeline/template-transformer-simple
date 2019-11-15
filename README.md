@@ -21,3 +21,6 @@ The benefit of this approach is that the processing code can be updated in its o
 Another benefit is the clean separation of the processing logic and the environment via seperate repos.
 
 A drawback is that there may be a proliferation of repos.
+
+## Testing
+The testing modules and readme can be found [here](https://github.com/AgPipeline/template-transformer-simple/tree/test-development/test-files)

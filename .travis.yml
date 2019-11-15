@@ -10,5 +10,4 @@ install:
  - "pip install pylint"
 
 script:
- - "cd base-image"
  - "python -m pytest -v"

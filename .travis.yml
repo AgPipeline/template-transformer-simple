@@ -10,4 +10,7 @@ install:
  - "pip install pylint"
 
 script:
+ - "git clone https://github.com/AgPipeline/Organization-info.git"
+ - "pylint --rcfile=Organization-info/pylint.rc *.py"
+ - "pylint --rcfile=Organization-info/pylint.rc test-files/*.py"
  - "python -m pytest -v"

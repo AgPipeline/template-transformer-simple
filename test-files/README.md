@@ -6,7 +6,7 @@ In addition to this, [pylint](https://www.pylint.org/) will also be deployed.
 Look into our organization's repository for our [pylint protocols](https://github.com/AgPipeline/Organization-info).
 
 ### Running the tests
-Upon submitting a pull request Travis will build and run the testing modules automatically and will return a report with all passing or failing code. 
+Upon submitting a pull request Travis will build and run the testing modules automatically and return a report with passing and failing code. 
 
 ### Running the tests before submitting a pull request
 Should you wish to test your code before submitting a pull request follow these steps:
@@ -27,7 +27,7 @@ Should you wish to test your code before submitting a pull request follow these 
     ```
 
 ### Requirements 
-There are no additional requirements or dependancies if not running these tests locally, if however these are to be run before deploying travis the following are required. 
+These are the requirements needed when ruinning the tests locally. 
 
 python 3 \
 pylint \

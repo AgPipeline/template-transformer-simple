@@ -46,8 +46,7 @@ def test_perform_process():
     test_full_md = {}
 
     #Saving function call to variable
-    test_process = transformer.perform_process(test_transformer,test_md,\ 
-        test_transformer_md,test_full_md)
+    test_process = transformer.perform_process(test_transformer, test_md, test_transformer_md, test_full_md)
 
     #Should return dict type
     assert isinstance(test_process, dict)

@@ -11,11 +11,7 @@ def add_parameters(parser: argparse.ArgumentParser) -> None:
         parser: instance of argparse
     """
 
-<<<<<<< HEAD
-def check_continue(transformer: transformer_class.Transformer, check_md: dict, transformer_md: dict, full_md: dict) -> list:
-=======
 def check_continue(transformer: transformer_class.Transformer, check_md: dict, transformer_md: dict, full_md: dict) -> tuple:
->>>>>>> origin/develop
     """Checks if conditions are right for continuing processing
     Arguments:
         transformer: instance of transformer class

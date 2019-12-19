@@ -30,7 +30,7 @@ def test_check_continue():
     test_full_md = {}
 
     #Saving function call to variable
-    test_check = transformer.check_continue(test_transformer,test_md,\ 
+    test_check = transformer.check_continue(test_transformer,test_md,\
         test_transformer_md, test_full_md)
 
     #Should return a list type

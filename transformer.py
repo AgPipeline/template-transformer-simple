@@ -1,4 +1,4 @@
-"""Testing instance of transformer
+"""My nifty transformer
 """
 
 import argparse
@@ -11,12 +11,16 @@ def add_parameters(parser: argparse.ArgumentParser) -> None:
         parser: instance of argparse
     """
 
+<<<<<<< HEAD
 def check_continue(transformer: transformer_class.Transformer, check_md: dict, transformer_md: dict, full_md: dict) -> list:
+=======
+def check_continue(transformer: transformer_class.Transformer, check_md: dict, transformer_md: dict, full_md: dict) -> tuple:
+>>>>>>> origin/develop
     """Checks if conditions are right for continuing processing
     Arguments:
         transformer: instance of transformer class
     Return:
-        Returns a dictionary containining the return code for continuing or not, and
+        Returns a tuple containining the return code for continuing or not, and
         an error message if there's an error
     """
     print("check_continue(): received arguments: %s" % str(check_md))

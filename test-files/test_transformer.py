@@ -8,7 +8,7 @@ import transformer_class
 
 #Setting up some testing classes
 TEST_TRANSFORMER = transformer_class.Transformer()
-TEST_PARSE = argparse.ArgumentParser
+PARSE = argparse.ArgumentParser
 
 # pylint: disable=assignment-from-no-return
 def test_add_parameters():
@@ -16,7 +16,7 @@ def test_add_parameters():
     """
 
     #Saving method call to variable
-    test_params = transformer.add_parameters(TEST_PARSE)
+    test_params = transformer.add_parameters(PARSE)
 
     #Should return None
     assert test_params is None

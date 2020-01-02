@@ -27,7 +27,7 @@ def determine_base_image() -> str:
     return args.base_image
 
 def generate_dockerfile(base_image_name: str) -> None:
-    """Genertes a Dockerfile file using the configured information
+    """Generates a Dockerfile file using the configured information
     """
     # pylint: disable=global-statement
     global DOCKERFILE_TEMPLATE_FILE_NAMES

@@ -23,7 +23,7 @@ AUTHOR_NAME = ''
 AUTHOR_EMAIL = ''
 
 # Contributors to this transformer
-CONTRUBUTORS = []
+CONTRIBUTORS = []
 
-# Reposity URI of where the source code lives
+# Repository URI of where the source code lives
 REPOSITORY = ''

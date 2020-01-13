@@ -10,7 +10,7 @@ import configuration
 DOCKERFILE_TEMPLATE_FILE_NAMES = ["Dockerfile.template"]
 
 # The default docker image to use
-DEFAULT_DOCKER_IMAGE = 'agpipeline/gantry-base-image:latest'
+DEFAULT_DOCKER_IMAGE = 'agpipeline/gantry-base-image:1.2'
 
 def determine_base_image() -> str:
     """Determines the base image to use in the dockerfile
@@ -27,7 +27,7 @@ def determine_base_image() -> str:
     return args.base_image
 
 def generate_dockerfile(base_image_name: str) -> None:
-    """Genertes a Dockerfile file using the configured information
+    """Generates a Dockerfile file using the configured information
     """
     # pylint: disable=global-statement
     global DOCKERFILE_TEMPLATE_FILE_NAMES

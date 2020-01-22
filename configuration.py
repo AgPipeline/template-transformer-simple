@@ -27,3 +27,7 @@ CONTRIBUTORS = []
 
 # Repository URI of where the source code lives
 REPOSITORY = ''
+
+# Hard-coded override of base docker image (used when Dockerfile is generated)
+# If a name is entered here it will be used to populate the "FROM" field of the Dockerfile
+BASE_DOCKER_IMAGE_OVERRIDE_NAME = ''

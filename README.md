@@ -7,7 +7,8 @@ To use this template:
 2. Fill out the `configuration.py` file with your information. Feel free to add additional variables.
 3. Add your code to the `transformer.py` file, filling in the *add_parameters*, *check_continue*, and *perform_process* functions.
 4. Run the `generate-docker.py` script to generate your Dockerfile for building images
-5. Build the Docker image for your transformer, being sure to specify the desired source image
+5. Build the Docker image for your transformer, being sure to specify the desired source image.
+Alternatively, you can fill in the BASE_DOCKER_IMAGE_OVERRIDE_NAME variable in `configuration.py` to specify the base Docker image, instead of using a command line option.
 
 For your transformer to be accepted, be sure to have test cases and continuous integration setup.
 Please be sure to read about how to contribute in the documents held in our [main repository](https://github.com/AgPipeline/Organization-info).

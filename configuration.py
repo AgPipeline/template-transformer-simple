@@ -23,7 +23,11 @@ AUTHOR_NAME = ''
 AUTHOR_EMAIL = ''
 
 # Contributors to this transformer
-CONTRUBUTORS = []
+CONTRIBUTORS = []
 
-# Reposity URI of where the source code lives
+# Repository URI of where the source code lives
 REPOSITORY = ''
+
+# Hard-coded override of base docker image (used when Dockerfile is generated)
+# If a name is entered here it will be used to populate the "FROM" field of the Dockerfile
+BASE_DOCKER_IMAGE_OVERRIDE_NAME = ''

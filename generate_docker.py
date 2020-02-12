@@ -10,7 +10,7 @@ import configuration
 DOCKERFILE_TEMPLATE_FILE_NAMES = ["Dockerfile.template"]
 
 # The default docker image to use
-DEFAULT_DOCKER_IMAGE = 'agpipeline/gantry-base-image:latest'
+DEFAULT_DOCKER_IMAGE = 'agpipeline/gantry-base-image:1.2'
 
 def determine_base_image() -> str:
     """Determines the base image to use in the dockerfile
@@ -20,14 +20,19 @@ def determine_base_image() -> str:
     parser = argparse.ArgumentParser()
 
     parser.add_argument('base_image', nargs='?', default=DEFAULT_DOCKER_IMAGE,
-                        help='the docker image to use as the base for this transformer')
+                        help='the docker image to use as the base for this transformer (can also be set in configuration.py')
 
     args = parser.parse_args()
 
-    return args.base_image
+    # Check for a configuration override
+    static_override = None
+    if hasattr(configuration, "BASE_DOCKER_IMAGE_OVERRIDE_NAME"):
+        static_override = getattr(configuration, "BASE_DOCKER_IMAGE_OVERRIDE_NAME")
+
+    return static_override if static_override else args.base_image
 
 def generate_dockerfile(base_image_name: str) -> None:
-    """Genertes a Dockerfile file using the configured information
+    """Generates a Dockerfile file using the configured information
     """
     # pylint: disable=global-statement
     global DOCKERFILE_TEMPLATE_FILE_NAMES
@@ -40,11 +45,10 @@ def generate_dockerfile(base_image_name: str) -> None:
     if not hasattr(configuration, 'AUTHOR_EMAIL') or not configuration.AUTHOR_EMAIL:
         missing.append("Author email")
     if missing:
-        raise RuntimeError("One or more configuration fields aren't defined in configuration.py: " \
+        raise RuntimeError("One or more configuration fields aren't defined in configuration.py: "
                            + ", ".join(missing))
 
-    new_name = configuration.TRANSFORMER_NAME.strip().replace(' ', '_').replace('\t', '_').\
-                                            replace('\n', '_').replace('\r', '_')
+    new_name = configuration.TRANSFORMER_NAME.strip().replace(' ', '_').replace('\t', '_').replace('\n', '_').replace('\r', '_')
     extractor_name = new_name.lower()
 
     for template_name in DOCKERFILE_TEMPLATE_FILE_NAMES:
@@ -54,8 +58,8 @@ def generate_dockerfile(base_image_name: str) -> None:
         with open(dockerfile_name, 'w') as out_file:
             for line in template:
                 if line.startswith('LABEL maintainer='):
-                    out_file.write("LABEL maintainer=\"{0} <{1}>\"\n".format(configuration.AUTHOR_NAME, \
-                                   configuration.AUTHOR_EMAIL))
+                    out_file.write("LABEL maintainer=\"{0} <{1}>\"\n".format(configuration.AUTHOR_NAME,
+                                                                             configuration.AUTHOR_EMAIL))
                 elif line.startswith('FROM base-image'):
                     out_file.write("FROM {0}\n".format(base_image_name))
                 else:

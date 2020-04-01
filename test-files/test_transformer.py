@@ -50,4 +50,4 @@ def test_perform_process():
 
     # Should return dict type
     assert isinstance(test_process, dict)
-    
+

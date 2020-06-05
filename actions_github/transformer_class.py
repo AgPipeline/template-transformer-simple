@@ -47,4 +47,3 @@ class Transformer():
             will be  treated as such.
         """
         return 0, "everything's in order"
-

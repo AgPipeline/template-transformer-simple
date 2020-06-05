@@ -48,8 +48,6 @@ def generate_dockerfile(base_image_name: str) -> None:
         raise RuntimeError("One or more configuration fields aren't defined in configuration.py: "
                            + ", ".join(missing))
 
-    new_name = configuration.TRANSFORMER_NAME.strip().replace(' ', '_').replace('\t', '_').replace('\n', '_').replace('\r', '_')
-
     for template_name in DOCKERFILE_TEMPLATE_FILE_NAMES:
         template = [line.rstrip('\n') for line in open(template_name, "r")]
         template_len = len('.template')

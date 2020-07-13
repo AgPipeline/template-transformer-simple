@@ -5,7 +5,7 @@ A template for creating transformers for multiple environments.
 To use this template:
 1. Clone this template into a new repository
 2. Fill out the `configuration.py` file with your information. Feel free to add additional variables.
-3. Add your code to the `transformer.py` file, filling in the *add_parameters*, *check_continue*, and *perform_process* functions.
+3. Add your code to the `transformer.py` file, filling in the *add_parameters*, *check_continue*, and *perform_process* functions. Note that the *add_parameters* and *check_continue* functions are optional and can be deleted
 4. Run the `generate-docker.py` script to generate your Dockerfile for building images
 5. Build the Docker image for your transformer, being sure to specify the desired source image.
 Alternatively, you can fill in the BASE_DOCKER_IMAGE_OVERRIDE_NAME variable in `configuration.py` to specify the base Docker image, instead of using a command line option.

@@ -30,3 +30,5 @@ RUN [ -s /home/extractor/requirements.txt ] && \
 USER extractor
 
 COPY *.py /home/extractor/
+
+ENTRYPOINT ["python3","/home/extractor/transformer.py"]

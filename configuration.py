@@ -13,7 +13,7 @@ class ConfigurationInfo(Configuration):
     transformer_description = ''
 
     # Short name of the transformer
-    TRANSFORMER_NAME = ''
+    transformer_name = ''
 
     # The sensor associated with the transformer
     transformer_sensor = ''

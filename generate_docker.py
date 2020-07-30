@@ -4,13 +4,13 @@
 """
 
 import argparse
-import configuration
+from configuration import ConfigurationInfo
 
 # The template file name for Dockerfile
 DOCKERFILE_TEMPLATE_FILE_NAMES = ["Dockerfile.template"]
 
 # The default docker image to use
-DEFAULT_DOCKER_IMAGE = 'agdrone/drone-base-image:1.2'
+DEFAULT_DOCKER_IMAGE = 'agdrone/agpypeline:1.0'
 
 def determine_base_image() -> str:
     """Determines the base image to use in the dockerfile
@@ -26,8 +26,8 @@ def determine_base_image() -> str:
 
     # Check for a configuration override
     static_override = None
-    if hasattr(configuration, "BASE_DOCKER_IMAGE_OVERRIDE_NAME"):
-        static_override = getattr(configuration, "BASE_DOCKER_IMAGE_OVERRIDE_NAME")
+    if hasattr(ConfigurationInfo, "base_docker_image_override_name"):
+        static_override = getattr(ConfigurationInfo, "base_docker_image_override_name")
 
     return static_override if static_override else args.base_image
 
@@ -38,11 +38,11 @@ def generate_dockerfile(base_image_name: str) -> None:
     global DOCKERFILE_TEMPLATE_FILE_NAMES
 
     missing = []
-    if not hasattr(configuration, 'TRANSFORMER_NAME') or not configuration.TRANSFORMER_NAME:
+    if not hasattr(ConfigurationInfo, 'transformer_name') or not ConfigurationInfo.transformer_name:
         missing.append("Transformer name")
-    if not hasattr(configuration, 'AUTHOR_NAME') or not configuration.AUTHOR_NAME:
+    if not hasattr(ConfigurationInfo, 'author_name') or not ConfigurationInfo.author_name:
         missing.append("Author name")
-    if not hasattr(configuration, 'AUTHOR_EMAIL') or not configuration.AUTHOR_EMAIL:
+    if not hasattr(ConfigurationInfo, 'author_email') or not ConfigurationInfo.author_email:
         missing.append("Author email")
     if missing:
         raise RuntimeError("One or more configuration fields aren't defined in configuration.py: "
@@ -55,8 +55,8 @@ def generate_dockerfile(base_image_name: str) -> None:
         with open(dockerfile_name, 'w') as out_file:
             for line in template:
                 if line.startswith('LABEL maintainer='):
-                    out_file.write("LABEL maintainer=\"{0} <{1}>\"\n".format(configuration.AUTHOR_NAME,
-                                                                             configuration.AUTHOR_EMAIL))
+                    out_file.write("LABEL maintainer=\"{0} <{1}>\"\n".format(ConfigurationInfo.author_name,
+                                                                             ConfigurationInfo.author_email))
                 elif line.startswith('FROM base-image'):
                     out_file.write("FROM {0}\n".format(base_image_name))
                 else:

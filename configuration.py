@@ -1,33 +1,38 @@
 """Contains transformer configuration information
 """
+from agpypeline.configuration import Configuration
 
-# The version number of the transformer
-TRANSFORMER_VERSION = '1.0'
 
-# The transformer description
-TRANSFORMER_DESCRIPTION = ''
+class ConfigurationInfo(Configuration):
+    """Configuration information"""
+    # pylint: disable=too-few-public-methods
+    # The version number of the transformer
+    transformer_version = '1.0'
 
-# Short name of the transformer
-TRANSFORMER_NAME = ''
+    # The transformer description
+    transformer_description = ''
 
-# The sensor associated with the transformer
-TRANSFORMER_SENSOR = ''
+    # Short name of the transformer
+    transformer_name = ''
 
-# The transformer type (eg: 'rgbmask', 'plotclipper')
-TRANSFORMER_TYPE = ''
+    # The sensor associated with the transformer
+    transformer_sensor = ''
 
-# The name of the author of the extractor
-AUTHOR_NAME = ''
+    # The transformer type (eg: 'rgbmask', 'plotclipper')
+    transformer_type = ''
 
-# The email of the author of the extractor
-AUTHOR_EMAIL = ''
+    # The name of the author of the extractor
+    author_name = ''
 
-# Contributors to this transformer
-CONTRIBUTORS = []
+    # The email of the author of the extractor
+    author_email = ''
 
-# Repository URI of where the source code lives
-REPOSITORY = ''
+    # Contributors to this transformer
+    contributors = []
 
-# Hard-coded override of base docker image (used when Dockerfile is generated)
-# If a name is entered here it will be used to populate the "FROM" field of the Dockerfile
-BASE_DOCKER_IMAGE_OVERRIDE_NAME = ''
+    # Repository URI of where the source code lives
+    repository = ''
+
+    # Hard-coded override of base docker image (used when Dockerfile is generated)
+    # If a name is entered here it will be used to populate the "FROM" field of the Dockerfile
+    base_docker_image_override_name = ''

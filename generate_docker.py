@@ -10,7 +10,7 @@ from configuration import ConfigurationInfo
 DOCKERFILE_TEMPLATE_FILE_NAMES = ["Dockerfile.template"]
 
 # The default docker image to use
-DEFAULT_DOCKER_IMAGE = 'agdrone/agpypeline:1.0'
+DEFAULT_DOCKER_IMAGE = 'ubuntu:18.04'
 
 def determine_base_image() -> str:
     """Determines the base image to use in the dockerfile

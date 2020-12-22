@@ -8,7 +8,7 @@ from subprocess import getstatusoutput
 
 from agpypeline.environment import Environment
 
-from configuration import ConfigurationInfo;
+from configuration import ConfigurationInfo
 
 # The name of the source file to test and it's path
 SOURCE_FILE = 'transformer.py'

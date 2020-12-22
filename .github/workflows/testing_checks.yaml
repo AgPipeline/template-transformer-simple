@@ -42,7 +42,7 @@ jobs:
       - name: Update pip
         run: python3 -m pip install --upgrade --no-cache-dir pip
       - name: Fetch/update setuptools
-        run: sudo python3 -m pip install --upgrade --no-cache-dir setuptools
+        run: python3 -m pip install --upgrade --no-cache-dir setuptools
       - name: Install python-apt
         run: sudo apt-get install -y python-apt
       - name: HACK to fix apt-get update problem w/ different python versions
@@ -53,8 +53,8 @@ jobs:
         run: python3 -m pip install --upgrade --no-cache-dir ${{ matrix.pip_installs }}
       - name: Fetch source code
         uses: actions/checkout@v2
-      - name: Finding files
-        run: find . -type f -name "*.py" > action_pylint_files.txt
+      - name: Finding files to process
+        run: find . -type f -name "*.py" > action_test_files.txt
       - name: Install system requirements
         shell: bash
         run: 'sudo apt-get install -y python3-gdal gdal-bin libgdal-dev gcc g++ python3.7-dev'
@@ -63,16 +63,16 @@ jobs:
         run: 'python3 -m pip install --upgrade --no-cache-dir numpy wheel'
       - name: Install Python pygdal
         shell: bash
-        run: 'sudo python3 -m pip install --no-cache-dir pygdal==2.2.3.5'
+        run: 'python3 -m pip install --no-cache-dir pygdal==2.2.3.5'
       - name: Install system requirements from source
         shell: bash
-        run: '[ -s "packages.txt" ] && (cat packages.txt | sudo xargs apt-get install -y --no-install-recommends) || (echo "No additional packages to install")'
+        run: '[ -s "packages.txt" ] && (cat packages.txt | sudo xargs apt-get install -y --no-install-recommends) || (echo "Failed to install additional packages" && exit 1)'
       - name: Install Python requirements from source
         shell: bash
-        run: '[ -s "requirements.txt" ] && (python3 -m pip install --no-cache-dir -r requirements.txt) || (echo "No Python packages to install")'
+        run: '[ -s "requirements.txt" ] && (python3 -m pip install --no-cache-dir -r requirements.txt) || (echo "Failed to install Python requirements" && exit 1)'
       - name: Run action pylint script
         shell: bash
-        run: '[ -s ".github/workflows/action_pylint.sh" ] && (chmod +x ".github/workflows/action_pylint.sh" && ./.github/workflows/action_pylint.sh) || (echo "Error running shell script")'
+        run: '[ -s ".github/workflows/action_pylint.sh" ] && (chmod +x ".github/workflows/action_pylint.sh" && ./.github/workflows/action_pylint.sh) || (echo "Error running shell script" && exit 1)'
       - name: Fetching pylint.rc file
         run: wget https://raw.githubusercontent.com/AgPipeline/Organization-info/master/pylint.rc
         if: ${{ matrix.name }} == "pylint"

@@ -43,6 +43,12 @@ jobs:
         run: python3 -m pip install --upgrade --no-cache-dir pip
       - name: Fetch/update setuptools
         run: python3 -m pip install --upgrade --no-cache-dir setuptools
+      - name: Install python-apt
+        run: sudo apt-get install -y python-apt
+      - name: HACK to fix apt-get update problem w/ different python versions
+        run: 'cd /usr/lib/python3/dist-packages && sudo cp apt_pkg.cpython-36m-x86_64-linux-gnu.so apt_pkg.so'
+      - name: Update apt-get
+        run: sudo apt-get update
       - name: Fetch/update testing pip installations
         run: python3 -m pip install --upgrade --no-cache-dir ${{ matrix.pip_installs }}
       - name: Fetch source code
@@ -54,13 +60,13 @@ jobs:
         run: 'sudo apt-get install -y python3-gdal gdal-bin libgdal-dev gcc g++ python3.7-dev'
       - name: Install Python numpy
         shell: bash
-        run: 'python3 -m pip install --upgrade --no-cache-dir numpy wheel terrautils'
+        run: 'python3 -m pip install --upgrade --no-cache-dir numpy wheel'
       - name: Install Python pygdal
         shell: bash
         run: 'sudo python3 -m pip install --no-cache-dir pygdal==2.2.3.5'
       - name: Install system requirements from source
         shell: bash
-        run: '[ -s "packages.txt" ] && (cat packages.txt | sudo xargs apt-get install -y --no-install-recommends) || (echo "No addtional packages to install")'
+        run: '[ -s "packages.txt" ] && (cat packages.txt | sudo xargs apt-get install -y --no-install-recommends) || (echo "No additional packages to install")'
       - name: Install Python requirements from source
         shell: bash
         run: '[ -s "requirements.txt" ] && (python3 -m pip install --no-cache-dir -r requirements.txt) || (echo "No Python packages to install")'

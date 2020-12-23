@@ -1,3 +1,5 @@
+![testing](https://github.com/AgPipeline/template-transformer-simple/workflows/Enforcing%20testing%20checks/badge.svg)
+
 # Transformer Template
 
 This repository is a template for creating Transformer which perform work on one or more files at a time.

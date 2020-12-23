@@ -1,4 +1,5 @@
 ![testing](https://github.com/AgPipeline/template-transformer-simple/workflows/Enforcing%20testing%20checks/badge.svg)
+![license](https://img.shields.io/badge/license-BSD%203-green)
 
 # Transformer Template
 

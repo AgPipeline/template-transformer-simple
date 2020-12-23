@@ -1,4 +1,4 @@
-![license](https://img.shields.io/badge/license-BSD%203-green?logo=Open-Source-Initiative&link=https://github.com/AgPipeline/template-transformer-simple/blob/add_badges/LICENSE&link=https://github.com/AgPipeline/template-transformer-simple/blob/add_badges/LICENSE)
+![license](https://img.shields.io/badge/license-BSD%203-green?link=https://github.com/AgPipeline/template-transformer-simple/blob/master/LICENSE&logo=Open-Source-Initiative)
 
 ![testing](https://github.com/AgPipeline/template-transformer-simple/workflows/Enforcing%20testing%20checks/badge.svg)
 

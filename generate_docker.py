@@ -49,6 +49,7 @@ def generate_dockerfile(base_image_name: str) -> None:
                            + ", ".join(missing))
 
     for template_name in DOCKERFILE_TEMPLATE_FILE_NAMES:
+        # pylint: disable=consider-using-with
         template = [line.rstrip('\n') for line in open(template_name, "r")]
         template_len = len('.template')
         dockerfile_name = template_name[:(template_len * -1)]

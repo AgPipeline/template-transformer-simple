@@ -50,10 +50,10 @@ def generate_dockerfile(base_image_name: str) -> None:
 
     for template_name in DOCKERFILE_TEMPLATE_FILE_NAMES:
         # pylint: disable=consider-using-with
-        template = [line.rstrip('\n') for line in open(template_name, "r")]
+        template = [line.rstrip('\n') for line in open(template_name, "r", encoding='utf-8')]
         template_len = len('.template')
         dockerfile_name = template_name[:(template_len * -1)]
-        with open(dockerfile_name, 'w') as out_file:
+        with open(dockerfile_name, 'w', encoding='utf-8') as out_file:
             for line in template:
                 if line.startswith('LABEL maintainer='):
                     out_file.write("LABEL maintainer=\"{0} <{1}>\"\n".format(ConfigurationInfo.author_name,

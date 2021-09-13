@@ -24,7 +24,6 @@ RUN apt-get update && \
 
 # Perform some upgrades
 RUN python3 -m pip install --upgrade --no-cache-dir pip
-RUN python3 -m pip install --upgrade --no-cache-dir setuptools
 
 # Install applications we need
 RUN apt-get update && \
@@ -69,7 +68,6 @@ RUN [ -s /home/extractor/packages.txt ] && \
 RUN [ -s /home/extractor/requirements.txt ] && \
     (echo "Install python modules" && \
     python3 -m pip install -U --no-cache-dir pip && \
-    python3 -m pip install --no-cache-dir setuptools && \
     python3 -m pip install --no-cache-dir -r /home/extractor/requirements.txt && \
     rm /home/extractor/requirements.txt) || \
     (echo "No python modules to install" && \

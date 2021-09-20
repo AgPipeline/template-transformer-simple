@@ -34,9 +34,6 @@ def determine_base_image() -> str:
 def generate_dockerfile(base_image_name: str) -> None:
     """Generates a Dockerfile file using the configured information
     """
-    # pylint: disable=global-statement
-    global DOCKERFILE_TEMPLATE_FILE_NAMES
-
     missing = []
     if not hasattr(ConfigurationInfo, 'transformer_name') or not ConfigurationInfo.transformer_name:
         missing.append("Transformer name")

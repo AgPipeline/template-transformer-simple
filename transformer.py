@@ -19,7 +19,7 @@ class TemplateTransformer(algorithm.Algorithm):
         Arguments:
             parser: instance of argparse.ArgumentParser
         """
-        # pylint: disable=unused-argument, no-self-use
+        # pylint: disable=unused-argument
 
     # Optional function that can be removed if not used
     def check_continue(self, environment: Environment, check_md: dict, transformer_md: dict, full_md: list) -> tuple:
@@ -33,7 +33,7 @@ class TemplateTransformer(algorithm.Algorithm):
             Returns a tuple containing the return code for continuing or not, and
             an error message if there's an error
         """
-        # pylint: disable=unused-argument, no-self-use
+        # pylint: disable=unused-argument
 
         # Replace the following lines with your code
         print("check_continue(): received arguments: %s" % str(check_md))
@@ -49,7 +49,7 @@ class TemplateTransformer(algorithm.Algorithm):
         Return:
             Returns a dictionary with the results of processing
         """
-        # pylint: disable=unused-argument, no-self-use
+        # pylint: disable=unused-argument
 
         # Replace the following lines with your implementation
         print("perform_process(): received arguments: %s" % str(check_md))
